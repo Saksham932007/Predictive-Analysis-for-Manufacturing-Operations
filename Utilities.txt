@@ -1,0 +1,4 @@
+def validate_data(data):
+    required_columns = {'Machine_ID', 'Temperature', 'Run_Time', 'Downtime_Flag'}
+    if not required_columns.issubset(data.columns):
+        raise ValueError("Missing required columns")

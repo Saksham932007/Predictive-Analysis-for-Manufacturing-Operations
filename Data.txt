@@ -1,0 +1,17 @@
+Data
+
+---
+
+### **6. Final Steps**
+
+- **Test Locally:** Use Postman or cURL.
+- **Generate Requirements File:** `pip freeze > requirements.txt`
+- **Create Synthetic Dataset:** Example (CSV):
+
+```csv
+Machine_ID,Temperature,Run_Time,Downtime_Flag
+1,70,100,0
+2,85,140,1
+3,90,110,1
+4,65,90,0
+{"Downtime": "Yes", "Confidence": 0.85}

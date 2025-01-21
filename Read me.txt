@@ -1,0 +1,23 @@
+# Predictive Analysis for Manufacturing Operations
+
+## Setup
+1. Clone the repository.
+2. Create a virtual environment: `python -m venv venv`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Run the API: `uvicorn app.api:app --reload`
+
+## API Endpoints
+### Upload Data
+**POST /upload**  
+Upload CSV manufacturing data.
+
+### Train Model
+**POST /train**  
+Train the predictive model.
+
+### Predict
+**POST /predict**  
+Input JSON data to predict.  
+Example Input:  
+```json
+{"Temperature": 80, "Run_Time": 120}

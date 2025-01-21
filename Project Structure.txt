@@ -1,0 +1,11 @@
+predictive_analysis/
+├── app/
+│   ├── __init__.py
+│   ├── models.py
+│   ├── api.py
+│   ├── utils.py
+├── data/
+│   └── sample_data.csv
+├── requirements.txt
+├── README.md
+└── run.py

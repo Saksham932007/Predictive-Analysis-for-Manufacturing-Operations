@@ -1,0 +1,27 @@
+from fastapi import FastAPI, UploadFile, File
+from app.models import ManufacturingModel
+import pandas as pd
+
+app = FastAPI()
+model = ManufacturingModel()
+data = None
+
+@app.post("/upload")
+async def upload_data(file: UploadFile = File(...)):
+    global data
+    data = pd.read_csv(file.file)
+    return {"message": "Data uploaded successfully"}
+
+@app.post("/train")
+def train_model():
+    if data is None:
+        return {"error": "No data uploaded"}
+    metrics = model.train(data)
+    return {"message": "Model trained successfully", "metrics": metrics}
+
+@app.post("/predict")
+def predict(input_data: dict):
+    if model.model is None:
+        return {"error": "Model not trained"}
+    prediction = model.predict([input_data['Temperature'], input_data['Run_Time']])
+    return prediction
